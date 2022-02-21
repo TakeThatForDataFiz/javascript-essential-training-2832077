@@ -19,7 +19,12 @@ import Book from "./Book.js";
 //   "December 5, 2018 15:00:00 PST"
 // );
 
-const mockingBird = new Book("To Kill A MockingBird", "Harper Lee", "333");
+const mockingBird = new Book(
+  "To Kill A MockingBird",
+  "Harper Lee",
+  "333",
+  "1960"
+);
 
 mockingBird.addCopiesSold(1000000);
 mockingBird.addEdition();
