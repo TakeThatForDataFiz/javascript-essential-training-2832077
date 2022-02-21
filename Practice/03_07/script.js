@@ -7,3 +7,15 @@
  * - Find an object that has another object inside of it to create a nested object.
  * - Test your objects in the browser console by accessing the entire object and its specific properties.
  */
+const Computer = {
+  CPU: "Intel",
+  Motherboard: "CyberSpace",
+  Monitor: {
+    Model: "HP",
+    Size: (36, 55),
+    Pixels: 30000,
+  },
+  GPU: "Ryzen",
+};
+
+console.log(Computer);
