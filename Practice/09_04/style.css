@@ -22,3 +22,23 @@ body {
   height: 6rem;
   background-color: hsl(0, 0%, 90%);
 }
+
+.highlight {
+  background-color: blue;
+}
+
+.emphasize {
+  background-color: yellow;
+}
+
+.clicked {
+  background-color: purple;
+}
+
+.dark {
+  background-color: #202020;
+}
+
+.light {
+  background-color: #F5F5F5;
+}
