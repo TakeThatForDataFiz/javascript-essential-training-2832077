@@ -6,6 +6,7 @@
  * - Append each backpack object to the <main> element.
  */
 import Backpack from "./components/Backpack.js";
+import backpackObjectArray from "./components/data.js";
 
 const everydayPack = new Backpack(
   "pack01",
@@ -51,9 +52,40 @@ const content = `
 
 const main = document.querySelector(".maincontent");
 
-const newArticle = document.createElement("article");
-newArticle.classList.add("backpack");
-newArticle.setAttribute("id", "everyday");
-newArticle.innerHTML = content;
+const articles = backpackObjectArray.map((backpack) => {
+  let newArticle = document.createElement("article");
+  newArticle.classList.add("backpack");
+  newArticle.setAttribute("id", backpack.id);
+  newArticle.innerHTML = `
+  <figure class="backpack__image">
+    <img src=${backpack.image} alt="" loading="lazy" />
+  </figure>
+  <h1 class="backpack__name">${backpack.name}</h1>
+  <ul class="backpack__features">
+    <li class="feature backpack__volume">Volume:<span> ${
+      backpack.volume
+    }l</span></li>
+    <li class="feature backpack__color">Color:<span> ${
+      backpack.color
+    }</span></li>
+    <li class="feature backpack__age">Age:<span> ${backpack.backpackAge()} days old</span></li>
+    <li class="feature backpack__pockets">Number of pockets:<span> ${
+      backpack.pocketNum
+    }</span></li>
+    <li class="feature backpack__strap">Left strap length:<span> ${
+      backpack.strapLength.left
+    } inches</span></li>
+    <li class="feature backpack__strap">Right strap length:<span> ${
+      backpack.strapLength.right
+    } inches</span></li>
+    <li class="feature backpack__lid">Lid status:<span> ${
+      backpack.lidOpen ? "open" : "closed"
+    }</span></li>
+  </ul>
+`;
+  return newArticle;
+});
 
-main.append(newArticle);
+for (const item of articles) {
+  main.append(item);
+}
